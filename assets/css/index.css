@@ -79,6 +79,13 @@ nav {
   align-items: center;
   position: fixed;
   z-index: 10;
+  padding-left: 4rem;
+}
+
+.loadingContainer{
+  position: relative;
+  width: 100px;
+  height: 100px;
 }
 
 .circle1 {
@@ -975,4 +982,5 @@ footer a {
     transform: translateX(0);
   }
 }
+
 
