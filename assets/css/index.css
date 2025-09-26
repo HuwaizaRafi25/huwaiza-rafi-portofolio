@@ -1,0 +1,973 @@
+@font-face {
+  font-family: "Jakarta";
+  src: url("../fonts/static/PlusJakartaSans-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+nav {
+  width: 100%;
+  height: 10vh;
+  background-color: rgba(2, 48, 71, 0.8);
+  padding: 0 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  letter-spacing: 2px;
+  backdrop-filter: blur(5px);
+}
+
+.logo a {
+  font-family: "Jakarta";
+  color: rgb(237, 252, 173);
+  font-size: 1.25rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgb(237, 252, 173);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  font-family: "Jakarta";
+}
+
+.nav-links a:hover {
+  color: #ffb703;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+#home {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, #023047, #174f6b);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.loadingScreen {
+  width: 100%;
+  height: 100vh;
+  background-color: #023047;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+}
+
+.circle1 {
+  width: 48px;
+  height: 48px;
+  background-color: #f7e5b6;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -100%);
+  border-radius: 50%;
+  animation: move1 1.5s linear infinite;
+}
+
+.circle2 {
+  width: 48px;
+  height: 48px;
+  background-color: #ffb703;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -100%);
+  border-radius: 50%;
+  animation: move2 1.5s linear infinite;
+  box-shadow: 0 0 10px #000000;
+}
+
+.content1 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: left;
+  margin: 7rem 5.5rem;
+}
+
+.intro {
+  color: wheat;
+  font-family: "Jakarta";
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.salam {
+  font-size: 3rem;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  margin-left: -2rem;
+}
+
+.name p {
+  padding-left: 5rem;
+}
+
+.name hr {
+  width: 0;
+  height: 8rem;
+  border: none;
+  border-left: 2px solid #ffb703;
+  rotate: 90deg;
+  margin-bottom: -24px;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button {
+  width: 8rem;
+  height: 2.5rem;
+  color: black;
+  font-family: "Jakarta";
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #000000;
+  transition: background-color 0.3s ease;
+}
+
+.btn1 {
+  background-color: #ffb703;
+}
+
+.btn2 {
+  background-color: #8ecae6;
+}
+
+.title {
+  font-size: 3rem;
+  width: 13.5ch;
+  animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
+  animation-delay: 5400ms;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+.content2 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.selfpic {
+  margin-bottom: 5.5rem;
+  width: 17rem;
+  height: 20rem;
+  object-fit: contain;
+  border-radius: 50%;
+  scale: 1.5;
+  z-index: 2;
+}
+
+.selfpic-overlay {
+  position: absolute;
+  margin-top: 5rem;
+  width: 13rem;
+  height: 13rem;
+  background-color: #ffb703;
+  border: 1px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffffff;
+  scale: 1.5;
+}
+
+.laravelicon {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 20%;
+  box-shadow: 0 0 5px #000000;
+  padding: 0.5rem;
+  animation: iconmove 3s ease-in-out infinite;
+}
+
+.tfjsicon {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  margin-top: 6rem;
+  margin-left: 11.7rem;
+  background-color: white;
+  border-radius: 20%;
+  box-shadow: 0 0 5px #000000;
+  animation: iconmove 4s ease-in-out infinite;
+}
+
+.jsicon {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  margin-top: 18rem;
+  margin-left: -15rem;
+  border-radius: 20%;
+  box-shadow: 0 0 5px #000000;
+  z-index: 2;
+  animation: iconmove 2.3s ease-in-out infinite;
+}
+
+.polmanoverlay {
+  height: 116vh;
+  position: absolute;
+  top: -5rem;
+  z-index: 0;
+  right: -10rem;
+  opacity: 0.1;
+}
+
+#skills {
+  width: 100%;
+  height: auto;
+  background-color: #09364d;
+  overflow: hidden;
+}
+
+.skills-content {
+  /* justify-content: center; */
+  align-items: center;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  animation: slideIn 25s infinite linear;
+}
+
+.skills-content h2 {
+  color: rgba(238, 227, 207, 0.288);
+  font-family: "Jakarta";
+  font-size: 2rem;
+  font-weight: lighter;
+  text-align: center;
+}
+
+#about {
+  width: 100%;
+  height: 100vh;
+  background-color: #023047;
+}
+
+.about-container {
+  width: 100%;
+  height: 84vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: row;
+  padding-top: 4rem;
+}
+
+.about-img {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.about-pic {
+  border-radius: 0px 64px;
+}
+
+.about-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: wheat;
+  font-family: "Jakarta";
+  padding-right: 5rem;
+}
+
+.about-text h1 {
+  font-weight: 100;
+  font-size: 3.5rem;
+}
+
+.about-text p {
+  text-align: justify;
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.pagetitle {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  font-family: "Jakarta";
+  height: 16vh;
+}
+
+.titleshade {
+  position: absolute;
+  font-size: 5rem;
+  color: #ffb8030e;
+  font-family: "Jakarta";
+  z-index: 0;
+}
+
+.page {
+  position: absolute;
+  font-size: 2rem;
+  color: #ffb703;
+  z-index: 1;
+  margin-top: 1rem;
+}
+
+#projects {
+  width: 100%;
+  height: auto;
+  background-color: #09364d;
+}
+
+.project-containers {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 4rem 8rem;
+}
+
+.project-content1 {
+  width: 50%;
+  display: flex;
+  justify-content: right;
+  margin-right: 2rem;
+  align-items: center;
+  /* object-fit: contain; */
+}
+
+.project-pic {
+  border-radius: 64px 0px;
+  width: 32rem;
+}
+
+.project-content2 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-self: start;
+  flex-direction: column;
+  gap: 1rem;
+  color: wheat;
+  font-family: "Jakarta";
+  /* padding: 1rem 5rem 1rem 0rem; */
+}
+
+.project-components {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-component {
+  padding: 0.4rem 0.8rem;
+  background-color: #ffb8032d;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: small;
+  letter-spacing: 2px;
+}
+
+.project-link {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-link-github {
+  text-decoration: none;
+  color: black;
+  background-color: #ffb703;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 5px #000000;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-link-github i {
+  font-size: 1.5rem;
+}
+
+.project-link-github:hover {
+  background-color: #e6a500;
+}
+
+.project-link-visit {
+  text-decoration: none;
+  color: wheat;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: padding-left 0.3s ease;
+}
+
+.project-link-visit:hover {
+  padding-left: 1.2rem;
+}
+
+#certificates {
+  width: 100%;
+  height: 100vh;
+  background-color: #023047;
+}
+
+.certificates-content {
+  margin: 0 auto;
+  padding: 1rem;
+  width: 720px;
+  position: relative;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.slider {
+  display: flex;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+.slider img {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.slider-nav a {
+  width: 0.75rem; /* agak dibesarin biar jelas */
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  display: inline-block; /* wajib biar kelihatan */
+  cursor: pointer;
+}
+
+.slider-nav a:hover,
+.slider-nav a:focus {
+  opacity: 1;
+}
+
+#quotes {
+  width: 100%;
+  height: 20vh;
+  background-color: #174f6b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4rem;
+  text-align: center;
+}
+
+#quotes h1 {
+  color: wheat;
+  font-family: "Jakarta";
+  font-size: 2rem;
+  font-weight: lighter;
+  font-style: italic;
+  line-height: 2.5rem;
+  z-index: 1;
+}
+
+#contact {
+  width: 100%;
+  height: auto;
+  background-color: #09364d;
+}
+
+.get-in-touch-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: row;
+  padding-top: 1rem;
+}
+
+.get-in-touch-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: wheat;
+  font-family: "Jakarta";
+  padding: 0rem 6rem;
+}
+
+.get-in-touch-text h1 {
+  font-weight: 100;
+  font-size: 5rem;
+}
+
+.get-in-touch-image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.get-in-touch-image img {
+  height: 32rem;
+  border-radius: 0px 64px;
+  object-fit: cover;
+  box-shadow: 0 0 10px #000000;
+}
+
+.mailbox-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  gap: 1rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.input-text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  font-family: "Jakarta";
+  gap: 0.5rem;
+}
+
+.input-text input {
+  width: 100%;
+  height: 2.5rem;
+  border: none;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  font-family: "Jakarta";
+  padding-left: 0.5rem;
+}
+.input-text textarea {
+  width: 100%;
+  border: none;
+  height: 5rem;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  font-family: "Jakarta";
+  padding: 0.5rem;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #8ecae6;
+}
+
+footer {
+  width: 100%;
+  height: 10vh;
+  background-color: #023047;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4rem;
+  align-items: center;
+  color: wheat;
+  font-family: "Jakarta";
+}
+
+footer a {
+  color: wheat;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: wheat;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: #ffb703;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0 2rem;
+  }
+
+  .nav-links {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    top: 10vh;
+    background-color: #023047;
+    flex-direction: column;
+    align-items: start;
+    padding: 2rem;
+    justify-content: start;
+    gap: 2rem;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+
+  .nav-active {
+    transform: translateX(0%);
+  }
+
+  .nav-links li {
+    opacity: 1;
+  }
+
+  .nav-links li:nth-child(1) {
+    transition: opacity 0.5s ease-in 0.2s;
+  }
+
+  .nav-links li:nth-child(2) {
+    transition: opacity 0.5s ease-in 0.4s;
+  }
+
+  .nav-links li:nth-child(3) {
+    transition: opacity 0.5s ease-in 0.6s;
+  }
+
+  .nav-links li:nth-child(4) {
+    transition: opacity 0.5s ease-in 0.8s;
+  }
+
+  .nav-links li:nth-child(5) {
+    transition: opacity 0.5s ease-in 1s;
+  }
+
+  .nav-links li:nth-child(6) {
+    transition: opacity 0.5s ease-in 1.2s;
+  }
+
+  .nav-links li:nth-child(7) {
+    transition: opacity 0.5s ease-in 1.4s;
+  }
+
+  .nav-links li:nth-child(8) {
+    transition: opacity 0.5s ease-in 1.6s;
+  }
+
+  .burger {
+    display: block;
+    z-index: 10;
+  }
+
+  .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: wheat;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .toggle .line2 {
+    opacity: 0;
+  }
+
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  #home {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 2rem;
+  }
+
+  .content1 {
+    width: 90%;
+    margin: 2rem;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .content2 {
+    width: 100%;
+    margin: 0;
+  }
+
+  .intro {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .name {
+    justify-content: center;
+  }
+
+  .name p {
+    padding-left: 4rem;
+    text-align: left;
+  }
+
+  .title {
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    width: 13.5ch;
+  }
+
+  .polmanoverlay {
+    height: 60vh;
+    top: 15rem;
+  }
+
+  #about {
+    height: max-content;
+    padding-bottom: 2rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .about-img,
+  .about-text {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  .about-pic {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .projects-container {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .project-content1,
+  .project-content2 {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+  }
+
+  .project-pic {
+    width: 100%;
+    height: auto;
+  }
+
+  .certificates-content {
+    width: 90%;
+    padding: 0;
+  }
+
+  #certificates {
+    height: max-content;
+    padding-bottom: 4rem;
+    overflow-x: hidden;
+  }
+
+  .slider {
+    max-width: 100%;
+  }
+
+  .slider img {
+    height: auto;
+    object-fit: contain;
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  #quotes {
+    height: auto;
+    padding: 1rem;
+  }
+
+  #quotes h1 {
+    font-size: 1.5rem;
+  }
+
+  .get-in-touch-container {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .get-in-touch-text {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  .get-in-touch-image {
+    width: 100%;
+  }
+}
+
+@keyframes move1 {
+  0% {
+    transform: translate(-100%, -100%) translateX(0);
+  }
+  50% {
+    transform: translate(-100%, -100%) translateX(-20px);
+  }
+  100% {
+    transform: translate(-100%, -100%) translateX(0);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translate(-100%, -100%) translateX(0);
+  }
+  50% {
+    transform: translate(-100%, -100%) translateX(20px);
+  }
+  100% {
+    transform: translate(-100%, -100%) translateX(0);
+  }
+}
+
+@keyframes iconmove {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-130%);
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
